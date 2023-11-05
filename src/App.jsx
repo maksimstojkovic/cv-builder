@@ -1,11 +1,15 @@
 import Navbar from "./components/Navbar";
-import EditableInput from "./components/EditableInput";
+import Field from "./components/Field";
 
 function App() {
   return (
     <>
       <Navbar />
-      <EditableInput initialValue={"blank"} />
+      <div className="wrapper">
+        <section className="general">
+          <Field id={"full-name"} label={"Full Name"} initialValue={""} />
+        </section>
+      </div>
     </>
   );
 }
