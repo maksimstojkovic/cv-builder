@@ -23,7 +23,7 @@ function EditableInput({ initialValue }) {
 
   if (editMode) {
     return (
-      <div className="field">
+      <div className="editable-input">
         <input
           type="text"
           name={value}
@@ -44,7 +44,7 @@ function EditableInput({ initialValue }) {
   }
 
   return (
-    <div className="field" onClick={startEdit}>
+    <div className="editable-input" onClick={startEdit}>
       <div className="value">{value}</div>
     </div>
   );
