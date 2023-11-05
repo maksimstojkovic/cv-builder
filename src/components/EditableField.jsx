@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "../styles/EditableField.scss";
 
 function EditableInput({ initialValue }) {
   const [editMode, setEditMode] = useState(false);
@@ -22,19 +23,20 @@ function EditableInput({ initialValue }) {
 
   if (editMode) {
     return (
-      <div className="Field">
+      <div className="field">
         <input
           type="text"
+          name={value}
           value={value}
           onChange={(event) => setValue(event.target.value)}
           onKeyUp={(event) => {
             if (event.key === "Enter") saveEdit();
           }}
         />
-        <button type="button" className="save-edit" onClick={saveEdit}>
+        <button type="button" className="save" onClick={saveEdit}>
           Save
         </button>
-        <button type="button" className="cancel-edit" onClick={cancelEdit}>
+        <button type="button" className="cancel" onClick={cancelEdit}>
           Cancel
         </button>
       </div>
@@ -43,7 +45,7 @@ function EditableInput({ initialValue }) {
 
   return (
     <div className="field" onClick={startEdit}>
-      {value}
+      <div className="value">{value}</div>
     </div>
   );
 }
