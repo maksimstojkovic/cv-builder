@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "../styles/EditableField.scss";
 
-function EditableInput({ initialValue }) {
+function EditableField({ initialValue }) {
   const [editMode, setEditMode] = useState(false);
   const [prevValue, setPrevValue] = useState(null);
   const [value, setValue] = useState(initialValue);
@@ -50,4 +50,4 @@ function EditableInput({ initialValue }) {
   );
 }
 
-export default EditableInput;
+export default EditableField;
