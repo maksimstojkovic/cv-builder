@@ -1,11 +1,11 @@
 import Navbar from "./components/Navbar";
-import EditableField from "./components/EditableField";
+import EditableInput from "./components/EditableInput";
 
 function App() {
   return (
     <>
       <Navbar />
-      <EditableField initialValue={"blank"} />
+      <EditableInput initialValue={"blank"} />
     </>
   );
 }
