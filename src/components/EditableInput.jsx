@@ -24,15 +24,22 @@ function EditableInput({ id, initialValue = "", isTextArea = false }) {
     return (
       <div className={`editable-input ${isTextArea ? "textarea" : ""}`}>
         {isTextArea ? (
-          <textarea name={value} value={value}></textarea>
+          <textarea
+            name={id}
+            value={value}
+            onChange={(event) => setValue(event.target.value)}
+          ></textarea>
         ) : (
           <input
             type="text"
-            name={value}
+            name={id}
             value={value}
             onChange={(event) => setValue(event.target.value)}
             onKeyUp={(event) => {
-              if (event.key === "Enter") saveEdit();
+              if (event.key === "Enter") {
+                setValue;
+                saveEdit();
+              }
             }}
           />
         )}
