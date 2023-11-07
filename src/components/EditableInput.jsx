@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "../styles/EditableInput.scss";
 
 function EditableInput({ initialValue }) {
   const [editMode, setEditMode] = useState(false);
