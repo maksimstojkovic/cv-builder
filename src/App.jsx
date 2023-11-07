@@ -1,16 +1,16 @@
 import Navbar from "./components/Navbar";
-import Field from "./components/Field";
+import General from "./components/General";
+import Experience from "./components/Experience";
+import Education from "./components/Education";
 
 function App() {
   return (
-    <>
+    <div className="wrapper">
       <Navbar />
-      <div className="wrapper">
-        <section className="general">
-          <Field id={"full-name"} label={"Full Name"} initialValue={""} />
-        </section>
-      </div>
-    </>
+      <General />
+      <Experience />
+      <Education />
+    </div>
   );
 }
 
