@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function EditableInput({ initialValue }) {
+function EditableInput({ id, initialValue = "", isTextArea = false }) {
   const [editMode, setEditMode] = useState(false);
   const [prevValue, setPrevValue] = useState(null);
   const [value, setValue] = useState(initialValue);
@@ -22,16 +22,20 @@ function EditableInput({ initialValue }) {
 
   if (editMode) {
     return (
-      <div className="editable-input">
-        <input
-          type="text"
-          name={value}
-          value={value}
-          onChange={(event) => setValue(event.target.value)}
-          onKeyUp={(event) => {
-            if (event.key === "Enter") saveEdit();
-          }}
-        />
+      <div className={`editable-input ${isTextArea ? "textarea" : ""}`}>
+        {isTextArea ? (
+          <textarea name={value} value={value}></textarea>
+        ) : (
+          <input
+            type="text"
+            name={value}
+            value={value}
+            onChange={(event) => setValue(event.target.value)}
+            onKeyUp={(event) => {
+              if (event.key === "Enter") saveEdit();
+            }}
+          />
+        )}
         <button type="button" className="save" onClick={saveEdit}>
           Save
         </button>
