@@ -26,20 +26,45 @@ function EditableInput({
     saveEdit();
   };
 
+  const cls = `editable-input ${id} ${editMode ? "edit" : "value"} ${
+    isTextArea ? "textarea" : ""
+  } ${value === "" ? "placeholder" : ""}`;
+
   if (editMode) {
-    return (
-      <div className={`editable-input ${isTextArea ? "textarea" : ""}`}>
-        {isTextArea ? (
+    if (isTextArea) {
+      return (
+        <div className={cls}>
           <textarea
             name={id}
             value={value}
+            placeholder={placeholder}
             onChange={(event) => setValue(event.target.value)}
-          ></textarea>
-        ) : (
+            onBlur={(event) => {
+              if (
+                !event.relatedTarget ||
+                event.relatedTarget.nodeName !== "BUTTON"
+              ) {
+                cancelEdit();
+              }
+            }}
+            autoFocus
+          />
+          <button type="button" className="save" onClick={saveEdit}>
+            Save
+          </button>
+          <button type="button" className="cancel" onClick={cancelEdit}>
+            Cancel
+          </button>
+        </div>
+      );
+    } else {
+      return (
+        <div className={cls}>
           <input
             type="text"
             name={id}
             value={value}
+            placeholder={placeholder}
             onChange={(event) => setValue(event.target.value)}
             onKeyUp={(event) => {
               if (event.key === "Enter") {
@@ -47,23 +72,30 @@ function EditableInput({
                 saveEdit();
               }
             }}
+            onBlur={(event) => {
+              if (
+                !event.relatedTarget ||
+                event.relatedTarget.nodeName !== "BUTTON"
+              ) {
+                cancelEdit();
+              }
+            }}
+            autoFocus
           />
-        )}
-        <button type="button" className="save" onClick={saveEdit}>
-          Save
-        </button>
-        <button type="button" className="cancel" onClick={cancelEdit}>
-          Cancel
-        </button>
-      </div>
-    );
+          <button type="button" className="save" onClick={saveEdit}>
+            Save
+          </button>
+          <button type="button" className="cancel" onClick={cancelEdit}>
+            Cancel
+          </button>
+        </div>
+      );
+    }
   }
 
   return (
-    <div className="editable-input" onClick={startEdit}>
-      <div className={`value ${value === "" ? "placeholder" : ""}`}>
-        {value === "" ? placeholder : value}
-      </div>
+    <div className={cls} onClick={startEdit}>
+      <p>{value === "" ? placeholder : value}</p>
     </div>
   );
 }

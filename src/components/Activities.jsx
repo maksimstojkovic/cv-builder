@@ -2,25 +2,19 @@ import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import EditableInput from "./EditableInput";
 
-function Education() {
+function Activities() {
   const [items, setItems] = useState([]);
 
   const createItem = () => {
     const id = uuidv4();
     const newItem = (
-      <div key={id} className="education-item column">
+      <div key={id} className="activity-item column">
         <div className="row">
-          <EditableInput
-            id={`school-${id}`}
-            placeholder="School / University"
-          />
+          <EditableInput id={`activity-${id}`} placeholder="Activity" />
           <EditableInput id={`location-${id}`} placeholder="Location" />
         </div>
         <div className="row">
-          <EditableInput
-            id={`award-${id}`}
-            placeholder="Degree / Certificate"
-          />
+          <EditableInput id={`achievement-${id}`} placeholder="Achievement" />
           <div className="dates">
             <EditableInput id={`start-${id}`} placeholder="Start Date" />
             <p>-</p>
@@ -50,8 +44,8 @@ function Education() {
   };
 
   return (
-    <section className="education">
-      <h1>Education</h1>
+    <section className="activities">
+      <h1>Extra-curricular Activities</h1>
 
       {items.map((item) => {
         return item.elements;
@@ -64,4 +58,4 @@ function Education() {
   );
 }
 
-export default Education;
+export default Activities;
