@@ -35,7 +35,7 @@ function Skills() {
   };
 
   return (
-    <section className="skills">
+    <section className={`skills ${items.length ? "" : "empty"}`}>
       <h1>Skills</h1>
 
       {items.map((item) => {

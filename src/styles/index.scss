@@ -196,18 +196,19 @@ section {
 @media print {
   html,
   body {
-    width: 210mm;
-    height: 297mm;
+    width: 210mm !important;
+    height: 297mm !important;
   }
 
   .wrapper {
-    width: 100%;
+    width: 100% !important;
   }
 
   header,
   footer,
   button,
-  .placeholder {
-    display: none;
+  .placeholder,
+  .empty {
+    display: none !important;
   }
 }

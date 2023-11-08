@@ -44,7 +44,7 @@ function Activities() {
   };
 
   return (
-    <section className="activities">
+    <section className={`activities ${items.length ? "" : "empty"}`}>
       <h1>Extra-curricular Activities</h1>
 
       {items.map((item) => {

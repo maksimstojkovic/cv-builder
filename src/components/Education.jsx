@@ -50,7 +50,7 @@ function Education() {
   };
 
   return (
-    <section className="education">
+    <section className={`education ${items.length ? "" : "empty"}`}>
       <h1>Education</h1>
 
       {items.map((item) => {
