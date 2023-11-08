@@ -1,3 +1,4 @@
+import "../styles/EditableInput.scss";
 import { useState } from "react";
 
 function EditableInput({
