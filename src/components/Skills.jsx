@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, Fragment } from "react";
 import { v4 as uuidv4 } from "uuid";
 import EditableInput from "./EditableInput";
 
@@ -19,7 +19,14 @@ function Skills() {
           id={`description-${id}`}
           placeholder="Description"
         />
-        <button type="button" className="delete" onClick={() => deleteItem(id)}>
+        <button
+          key={`delete-${id}`}
+          type="button"
+          className="delete"
+          onClick={() =>
+            setItems((items) => items.filter((item) => item.id !== id))
+          }
+        >
           Delete
         </button>
       </>
@@ -28,18 +35,12 @@ function Skills() {
     setItems([...items, { id: id, elements: newItem }]);
   };
 
-  const deleteItem = (id) => {
-    const newList = items.filter((item) => item.id !== id);
-
-    setItems(newList);
-  };
-
   return (
     <section className={`skills ${items.length ? "" : "empty"}`}>
       <h1>Skills</h1>
 
       {items.map((item) => {
-        return item.elements;
+        return <Fragment key={item.id}>{item.elements}</Fragment>;
       })}
 
       <button type="button" onClick={() => createItem()}>

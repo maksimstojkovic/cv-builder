@@ -15,10 +15,6 @@ function App() {
           <button
             type="button"
             onClick={() => {
-              console.log("print");
-
-              console.log(document.querySelectorAll("button.save"));
-
               // Force react to render DOM
               flushSync(() => {
                 document

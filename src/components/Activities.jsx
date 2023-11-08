@@ -28,19 +28,19 @@ function Activities() {
             isTextArea={true}
           />
         </div>
-        <button type="button" className="delete" onClick={() => deleteItem(id)}>
+        <button
+          type="button"
+          className="delete"
+          onClick={() =>
+            setItems((items) => items.filter((item) => item.id !== id))
+          }
+        >
           Delete
         </button>
       </div>
     );
 
     setItems([...items, { id: id, elements: newItem }]);
-  };
-
-  const deleteItem = (id) => {
-    const newList = items.filter((item) => item.id !== id);
-
-    setItems(newList);
   };
 
   return (
