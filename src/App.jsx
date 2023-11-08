@@ -6,7 +6,7 @@ import Education from "./components/Education";
 function App() {
   return (
     <div className="wrapper">
-      <Navbar />
+      {/* <Navbar /> */}
       <General />
       <Experience />
       <Education />
