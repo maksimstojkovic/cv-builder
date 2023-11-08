@@ -42,7 +42,8 @@ function EditableInput({
             onBlur={(event) => {
               if (
                 !event.relatedTarget ||
-                event.relatedTarget.nodeName !== "BUTTON"
+                event.relatedTarget.nodeName !== "BUTTON" ||
+                !event.relatedTarget.classList.contains("cancel")
               ) {
                 saveEdit();
               }
@@ -75,7 +76,8 @@ function EditableInput({
             onBlur={(event) => {
               if (
                 !event.relatedTarget ||
-                event.relatedTarget.nodeName !== "BUTTON"
+                event.relatedTarget.nodeName !== "BUTTON" ||
+                !event.relatedTarget.classList.contains("cancel")
               ) {
                 saveEdit();
               }
