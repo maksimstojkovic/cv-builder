@@ -44,7 +44,7 @@ function EditableInput({
                 !event.relatedTarget ||
                 event.relatedTarget.nodeName !== "BUTTON"
               ) {
-                cancelEdit();
+                saveEdit();
               }
             }}
             autoFocus
@@ -77,7 +77,7 @@ function EditableInput({
                 !event.relatedTarget ||
                 event.relatedTarget.nodeName !== "BUTTON"
               ) {
-                cancelEdit();
+                saveEdit();
               }
             }}
             autoFocus
