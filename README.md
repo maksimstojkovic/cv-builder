@@ -1,8 +1,10 @@
-# React + Vite
+# CV Builder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple static React web application for building a personal CV (curriculum vitae / resume).
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+CV Builder supports the following document sections:
+1. General details
+2. Experience
+3. Education
+4. Extra-Curricular Activities
+5. Skills
