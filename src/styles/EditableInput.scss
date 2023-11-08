@@ -22,7 +22,8 @@
     word-break: break-word;
   }
 
-  &.textarea {
+  &.textarea,
+  textarea {
     width: 100%;
   }
 }
