@@ -1,7 +1,12 @@
-import "../styles/Field.scss";
 import EditableInput from "./EditableInput";
 
-function Field({ id, label = null, initialValue = "", isTextArea = false }) {
+function Field({
+  id,
+  label = null,
+  initialValue = "",
+  isTextArea = false,
+  placeholder = "",
+}) {
   if (label === null) label = id;
 
   return (
@@ -10,6 +15,7 @@ function Field({ id, label = null, initialValue = "", isTextArea = false }) {
       <EditableInput
         id={id}
         initialValue={initialValue}
+        placeholder={placeholder}
         isTextArea={isTextArea}
       />
     </div>

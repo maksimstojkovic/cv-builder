@@ -1,6 +1,11 @@
 import { useState } from "react";
 
-function EditableInput({ id, initialValue = "", isTextArea = false }) {
+function EditableInput({
+  id,
+  initialValue = "",
+  placeholder = "",
+  isTextArea = false,
+}) {
   const [editMode, setEditMode] = useState(false);
   const [prevValue, setPrevValue] = useState(null);
   const [value, setValue] = useState(initialValue);
@@ -55,7 +60,9 @@ function EditableInput({ id, initialValue = "", isTextArea = false }) {
 
   return (
     <div className="editable-input" onClick={startEdit}>
-      <div className="value">{value}</div>
+      <div className={`value ${value === "" ? "placeholder" : ""}`}>
+        {value === "" ? placeholder : value}
+      </div>
     </div>
   );
 }
